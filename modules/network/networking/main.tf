@@ -5,7 +5,7 @@ resource "azurerm_virtual_network" "Vnetwork_tf" {
   location            = var.resourceGroupLocation
   address_space       = ["10.123.0.0/16"]
   tags = {
-    environment = "dev"
+    environment = var.environment
   }
 }
 

@@ -18,6 +18,11 @@ variable "subnetName" {
   default     = "subnet-tf-test"
   description = "description"
 }
+variable "environment" {
+  type        = string
+  default     = "dev"
+  description = "description"
+}
 
 
 

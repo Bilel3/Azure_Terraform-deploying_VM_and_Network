@@ -18,4 +18,4 @@ sudo groupadd docker
 sudo usermod -aG docker $USER
 sudo systemctl enable docker
 # Install nginx
-sudo docker run --name some-nginx -v /some/content:/usr/share/nginx/html:ro -d nginx
+sudo docker run --name my-nginx  -p 80:80 -v /some/content:/usr/share/nginx/html:ro -d nginx

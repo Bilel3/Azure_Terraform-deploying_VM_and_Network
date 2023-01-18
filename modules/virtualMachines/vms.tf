@@ -38,11 +38,11 @@ resource "azurerm_linux_virtual_machine" "vm_tf" {
   }
 
   tags = {
-    environment = "dev"
+    environment = var.environment
   }
 }
 
-data "azurerm_public_ip" "tf_ip_data" {
-  name                = var.publicIpId
-  resource_group_name = var.resourceGroupName
-}
+# data "azurerm_public_ip" "tf_ip_data" {
+#   name                = var.publicIpId
+#   resource_group_name = var.resourceGroupName
+# }

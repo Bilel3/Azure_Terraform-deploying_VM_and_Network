@@ -3,7 +3,7 @@ resource "azurerm_network_security_group" "nsg_tf" {
   location            = var.resourceGroupLocation
   resource_group_name = var.resourceGroupName
   tags = {
-    environment = "dev"
+    environment = var.environment
   }
 }
 resource "azurerm_network_security_rule" "nsr_tf" {

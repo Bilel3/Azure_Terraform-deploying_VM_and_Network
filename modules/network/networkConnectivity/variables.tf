@@ -14,3 +14,7 @@ variable "subnetId" {
   type        = string
   description = "subnet id"
 }
+variable "environment" {
+  type        = string
+  description = "environment"
+}

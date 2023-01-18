@@ -6,3 +6,7 @@ variable "resourceGroupLocation" {
   type        = string
   description = "location"
 }
+variable "environment" {
+  type        = string
+  description = "environment"
+}

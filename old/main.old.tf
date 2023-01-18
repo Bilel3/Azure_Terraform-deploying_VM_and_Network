@@ -16,7 +16,7 @@ resource "azurerm_resource_group" "testing_tf" {
   name     = "testing_terraform"
   location = "West Europe"
   tags = {
-    environment = "dev"
+    environment = var.environment
   }
 }
 # Create a virtual network within the resource group
@@ -26,7 +26,7 @@ resource "azurerm_virtual_network" "Vnetwork_tf" {
   location            = azurerm_resource_group.testing_tf.location
   address_space       = ["10.123.0.0/16"]
   tags = {
-    environment = "dev"
+    environment = var.environment
   }
 }
 
@@ -41,7 +41,7 @@ resource "azurerm_network_security_group" "nsg_tf" {
   location            = azurerm_resource_group.testing_tf.location
   resource_group_name = azurerm_resource_group.testing_tf.name
   tags = {
-    environment = "dev"
+    environment = var.environment
   }
 }
 resource "azurerm_network_security_rule" "nsr_tf" {
@@ -67,7 +67,7 @@ resource "azurerm_public_ip" "public_ip_tf" {
   location            = azurerm_resource_group.testing_tf.location
   allocation_method   = "Dynamic"
   tags = {
-    environment = "dev"
+    environment = var.environment
   }
 }
 resource "azurerm_network_interface" "nic_tf" {
@@ -81,7 +81,7 @@ resource "azurerm_network_interface" "nic_tf" {
     public_ip_address_id          = azurerm_public_ip.public_ip_tf.id
   }
   tags = {
-    environment = "dev"
+    environment = var.environment
   }
 }
 
@@ -125,7 +125,7 @@ resource "azurerm_linux_virtual_machine" "vm_tf" {
   }
 
   tags = {
-    environment = "dev"
+    environment = var.environment
   }
 }
 

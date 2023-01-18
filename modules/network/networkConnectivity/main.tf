@@ -4,7 +4,7 @@ resource "azurerm_public_ip" "public_ip_tf" {
   location            = var.resourceGroupLocation
   allocation_method   = "Dynamic"
   tags = {
-    environment = "dev"
+    environment = var.environment
   }
 }
 resource "azurerm_network_interface" "nic_tf" {
@@ -18,6 +18,6 @@ resource "azurerm_network_interface" "nic_tf" {
     public_ip_address_id          = azurerm_public_ip.public_ip_tf.id
   }
   tags = {
-    environment = "dev"
+    environment = var.environment
   }
 }

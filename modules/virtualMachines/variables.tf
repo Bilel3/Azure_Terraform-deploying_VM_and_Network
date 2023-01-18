@@ -14,9 +14,12 @@ variable publicIpId {
   type        = string
   description = "public ip Identification"
 }
-
 variable "host_os" {
   type        = string
   default     = "linux"
   description = "description"
+}
+variable "environment" {
+  type        = string
+  description = "environment"
 }
