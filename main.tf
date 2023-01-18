@@ -21,7 +21,7 @@ resource "azurerm_resource_group" "testing_tf" {
 }
 
 module "network" {
-  source                = "./modules/network/networking"
+  source                = "./modules/network/subnetting"
   resourceGroupName     = var.resourceGroupName
   resourceGroupLocation = var.resourceGroupLocation
   environment           = var.environment
