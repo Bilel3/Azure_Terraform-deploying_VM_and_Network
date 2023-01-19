@@ -25,7 +25,7 @@ module "network" {
   resourceGroupName     = var.resourceGroupName
   resourceGroupLocation = var.resourceGroupLocation
   environment           = var.environment
-  depends_on=["azurerm_resource_group.testing_tf"]
+  depends_on            = ["azurerm_resource_group.testing_tf"]
 }
 module "networkCon" {
   source                = "./modules/network/networkConnectivity"
@@ -34,7 +34,7 @@ module "networkCon" {
   subnetName            = module.network.subnetName
   subnetId              = module.network.subnetId
   environment           = var.environment
-  depends_on=["module.network"]
+  depends_on            = ["module.network"]
 }
 module "networkSec" {
   source                = "./modules/network/networkSecurity"
@@ -42,7 +42,7 @@ module "networkSec" {
   resourceGroupLocation = var.resourceGroupLocation
   subnetId              = module.network.subnetId
   environment           = var.environment
-  depends_on=["module.networkCon"]
+  depends_on            = ["module.networkCon"]
 
 }
 module "servers" {
@@ -52,7 +52,7 @@ module "servers" {
   nicId                 = module.networkCon.nicId
   publicIpId            = module.networkCon.publicIpId
   environment           = var.environment
-  depends_on=["module.networkSec"]
+  depends_on            = ["module.networkSec"]
 }
 
 
