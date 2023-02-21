@@ -12,7 +12,7 @@ resource "azurerm_linux_virtual_machine" "vm_tf" {
 
   admin_ssh_key {
     username   = "adminuser"
-    public_key = file("~/.ssh/id_rsa.pub")
+    public_key = file("id_rsa.pub")
   }
 
   os_disk {
@@ -28,14 +28,14 @@ resource "azurerm_linux_virtual_machine" "vm_tf" {
   }
 
   #fill in the arguments for the linux-ssh-script.tpl
-  provisioner "local-exec" {
-    command = templatefile("${path.root}/templates/linux-ssh-script.tpl", {
-      hostname     = self.public_ip_address,
-      user         = "adminuser",
-      identityfile = "/home/bilel-bayoudhi/.ssh/id_rsa"
-    })
-    interpreter = var.host_os == "linux" ? ["bash", "-c"] : ["powershell", "-command"]
-  }
+  # provisioner "local-exec" {
+  #   command = templatefile("${path.root}/templates/linux-ssh-script.tpl", {
+  #     hostname     = self.public_ip_address,
+  #     user         = "adminuser",
+  #     identityfile = "/home/bilel-bayoudhi/.ssh/id_rsa"
+  #   })
+  #   interpreter = var.host_os == "linux" ? ["bash", "-c"] : ["powershell", "-command"]
+  # }
 
   tags = {
     environment = var.environment
